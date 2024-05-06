@@ -3,9 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shopping List</title>
+    <style>
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #shopping-list {
+            width: 300px;
+            margin: 20px auto;
+            background-color: #fff;    
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 5px;
+            margin-left: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+
+        ul {
+            list-style-type: none;
+            padding: 10px;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        li:hover {
+            background-color: #f9f9f9;
+        }
+        #shopping-div{
+            display: flex;
+            margin-bottom: 13px;
+        }
+        .bordered{
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Shopping List</h1>
+    <div id="shopping-list">
+        <div id="shopping-div">
+            <input type="text" id="item" placeholder="Enter item">
+            <button id="add-btn">➕</button>
+            <button id="hide-btn">🫣</button>
+        </div>
+        <ul id="list"></ul>
+
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
