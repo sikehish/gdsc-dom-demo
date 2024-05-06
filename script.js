@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const itemInput = document.getElementById('item');
     const list = document.getElementById('list');
     const ul = document.querySelector('#list');
+    const clockElement=document.getElementsByClassName("clock")[0]
     
 
     addItemButton.addEventListener('click', function() {
@@ -28,13 +29,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     hideListButton.addEventListener('click', (event) => {
-        if (list.style.display === "none") {
-            list.style.display = "block";
-        } else {
-            list.style.display = "none";
-        }
+        console.log("INSIDE setTimeout")
+        hideListButton.disabled=true
+        setTimeout(() => {
+            if (list.style.display === "none") {
+                list.style.display = "block";
+            } else {
+                list.style.display = "none";
+            }
+            hideListButton.disabled=false
+        }, 2000); // Change will take effect after 2 seconds
+        console.log("OUTSIDE setTimeout")
     });
-    
+
     // When an event occurs (e.g., a click, a keypress, a mouse movement), the browser creates an Event object and passes it to the appropriate event handler. The event.target property of this object points to the element where the event originated.
 
     // For example, if you click on a button, event.target will refer to the button element. If you click on a paragraph within a div, event.target will refer to the paragraph element.
@@ -56,4 +63,20 @@ document.addEventListener("DOMContentLoaded", function() {
             addItemButton.click();
         }
     });
+
+
+    function updateClock() {
+        const currentTime = new Date();
+        const hours = currentTime.getHours().toString().padStart(2,"0")
+        const minutes = currentTime.getMinutes().toString().padStart(2,"0")
+        const seconds = currentTime.getSeconds().toString().padStart(2,"0")
+        const formattedTime = `${hours}:${minutes}:${seconds}`;
+        clockElement.textContent = formattedTime;
+    }
+
+    // Update clock initially
+    updateClock();
+
+    // Update clock every second
+    setInterval(updateClock, 1000);
 });
