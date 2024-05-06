@@ -1,7 +1,7 @@
 # gdsc-dom-demo
 
 ## Description
-A basic html-js website to demonstrate the power of DOM(DOcument Object Model)
+A basic html-js website to demonstrate the power of DOM(DOcument Object Model), built as part of GDSC's 2 day Javascript workshop.
 
 ## Installation
 
